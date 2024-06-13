@@ -1,11 +1,11 @@
-import styles from "./Post.module.css";
+import styles from "./css/Post.module.css";
 
 function Post(props: any) {
 	return (
-		<div className={styles.post}>
+		<li className={styles.post}>
 			<p className={styles.author}>{props.author}</p>
 			<p className={styles.text}>{props.body}</p>
-		</div>
+		</li>
 	);
 }
 

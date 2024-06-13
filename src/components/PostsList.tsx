@@ -4,7 +4,7 @@ import Post from "./Post";
 import styles from "./css/PostsList.module.css";
 import Modal from "./Modal";
 
-function PostsList(props: any) {
+function PostsList({ isPosting, onStopPosting }: any) {
 	const [enteredBody, setEnteredBody] = useState("");
 	const [enteredAuthor, setEnteredAuthor] = useState("");
 
@@ -18,11 +18,12 @@ function PostsList(props: any) {
 
 	return (
 		<>
-			{props.isPosting && (
-				<Modal onClose={props.onStopPosting}>
+			{isPosting && (
+				<Modal onClose={onStopPosting}>
 					<NewPost
 						onBodyChange={changeBodyHandler}
 						onAuthorChange={changeAuthorHandler}
+						onCancel={onStopPosting}
 					/>
 				</Modal>
 			)}
